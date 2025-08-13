@@ -37,7 +37,7 @@ jobs:
         working-directory: ./pr-agent
         shell: bash
         run: |
-          echo "import sys\nfrom pr_agent.cli import run_command\ntry:\n    run_command('${{ github.event.pull_request.html_url }}', 'review')\nexcept Exception as e:\n    print(f'PR Review failed: {e}')\n    sys.exit(1)" | python
+          echo -e "import sys\nfrom pr_agent.cli import run_command\ntry:\n    run_command('https://github.com/Shiva-cal/django-oscar/pull/3', 'review')\nexcept Exception as e:\n    print(f'PR Review failed: {e}')\n    sys.exit(1)" | python
 
 
 
