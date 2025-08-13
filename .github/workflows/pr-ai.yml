@@ -43,9 +43,15 @@ jobs:
         shell: bash
  
         run: |
+          python - <<'EOF'
+        import sys
+        from pr_agent.cli import run_command
 
-          python -c "from pr_agent.cli import run_command; run_command('${{ github.event.pull_request.html_url }}', 'review')"
-
- 
+        try:
+          run_command('${{ github.event.pull_request.html_url }}', 'review')
+        except Exception as e:
+          print(f'❌ PR Review failed: {e}')
+          sys.exit(1)
+        EOF
  
  
