@@ -37,7 +37,10 @@ jobs:
         working-directory: ./pr-agent
         shell: bash
         run: |
-          set -e
           python -c "import sys,traceback;from pr_agent.cli import run_command; \
-try: run_command('${{ github.event.pull_request.html_url }}','review') \
-except Exception as e: print(f'❌ PR Review failed: {e}');traceback.print_exc();sys.exit(1)"
+try: \
+    run_command('${{ github.event.pull_request.html_url }}','review') \
+except Exception as e: \
+    print(f'❌ PR Review failed: {e}'); \
+    traceback.print_exc(); \
+    sys.exit(1)"
