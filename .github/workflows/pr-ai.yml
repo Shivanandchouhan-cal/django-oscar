@@ -33,19 +33,11 @@ jobs:
       - name: Run PR Review
         env:
           GITHUB__USER_TOKEN: ${{ secrets.AI_PR_REVIEW_BOT }}
-          OPENAI__KEY: ${{ secrets.OPENAI_API_KE }}   
+          OPENAI__KEY: ${{ secrets.OPENAI_API_KE }}
         working-directory: ./pr-agent
         shell: bash
         run: |
-          echo "
-import sys
-from pr_agent.cli import run_command
-try:
-    run_command('${{ github.event.pull_request.html_url }}', 'review')
-except Exception as e:
-    print(f'❌ PR Review failed: {e}')
-    sys.exit(1)
-" | python
+          echo "import sys\nfrom pr_agent.cli import run_command\ntry:\n    run_command('${{ github.event.pull_request.html_url }}', 'review')\nexcept Exception as e:\n    print(f'PR Review failed: {e}')\n    sys.exit(1)" | python
 
 
 
