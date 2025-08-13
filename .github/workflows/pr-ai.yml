@@ -37,7 +37,7 @@ jobs:
         working-directory: ./pr-agent
         shell: bash
         run: |
-          python <<EOF
+          echo "
 import sys
 from pr_agent.cli import run_command
 try:
@@ -45,7 +45,7 @@ try:
 except Exception as e:
     print(f'❌ PR Review failed: {e}')
     sys.exit(1)
-EOF
+" | python
 
 
 
