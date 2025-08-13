@@ -31,19 +31,12 @@ jobs:
           pip install -e .
  
       - name: Run PR Review
- 
         env:
- 
           GITHUB__USER_TOKEN: ${{ secrets.AI_PR_REVIEW_BOT }}
- 
           OPENAI__KEY: ${{ secrets.OPENAI_API_KE }}   
- 
         working-directory: ./pr-agent
- 
         shell: bash
- 
         run: |
- 
           python <<EOF
 import sys
 from pr_agent.cli import run_command
