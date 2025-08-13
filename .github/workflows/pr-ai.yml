@@ -44,6 +44,7 @@ jobs:
  
         run: |
 
+          set -e
           python -c "from pr_agent.cli import run_command; run_command('${{ github.event.pull_request.html_url }}', 'review')"
 
  
