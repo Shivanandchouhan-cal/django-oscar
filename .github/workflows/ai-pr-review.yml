@@ -1,8 +1,9 @@
 name: AI PR Review Bot_12
 on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-  issue_comment:
+  # pull_request:
+  #   types: [opened, synchronize, reopened, ready_for_review]
+  # issue_comment:
+  workflow_dispatch:
 
 jobs:
   pr_agent_job:
