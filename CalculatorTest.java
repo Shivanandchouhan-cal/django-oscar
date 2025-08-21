@@ -1,0 +1,13 @@
+public class CalculatorTest {
+	public static void main(String[] args) {
+		Calculator add = (a, b)-> a+b;
+        Calculator divide = (a, b)-> a/b;
+		
+		System.out.println("Addition is: "+add.calculate(10, 5));
+		System.out.println("Subtraction is: "+subtract.calculate(10, 5));
+        System.out.println("Division is: "+subtract.calculate(10, 0));
+        System.out.println("Multiplicatio is: "+subtract.calculate(10, 3));
+	}
+ 
+}
+ 
