@@ -38,8 +38,6 @@ jobs:
 
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
-          PR_AGENT_EXTRA_INSTRUCTIONS: "Avoid the arithmatic exception devided by zero"
-
         working-directory: ./pr-agent
 
         shell: bash
